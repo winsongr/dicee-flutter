@@ -8,7 +8,7 @@ void main() {
         backgroundColor: Colors.green,
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Dicee'),
+          title: Text('Dice'),
           backgroundColor: Colors.red,
         ),
         body: DicePage(),
