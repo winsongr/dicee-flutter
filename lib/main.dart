@@ -1,39 +1,58 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   return runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.teal[100],
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Dice'),
+          title: Text('WIBI'),
           backgroundColor: Colors.red,
         ),
-        body: DicePage(),
+        body: Dicepage(),
       ),
     ),
   );
 }
 
-class DicePage extends StatelessWidget {
+class Dicepage extends StatefulWidget {
+  @override
+  _DicepageState createState() => _DicepageState();
+}
+
+class _DicepageState extends State<Dicepage> {
+  int leftdiceno = 5;
+  int rightdiceno = 5;
+
+  void ran() {
+    setState(() {
+      leftdiceno = Random().nextInt(6) + 1;
+      rightdiceno = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    var no =4;
     return Center(
       child: Row(
         children: [
           Expanded(
             child: TextButton(
-              onPressed: () {},
-              child: Image.asset('images/dice$no.png'),
+              onPressed: () {
+                ran();
+              },
+              child: Image.asset('images/dice$leftdiceno.png'),
             ),
           ),
           Expanded(
             child: TextButton(
-              onPressed: () {},
-              child: Image.asset('images/dice1.png'),
+              onPressed: () {
+                ran();
+              },
+              child: Image.asset('images/dice$rightdiceno.png'),
             ),
           ),
         ],
